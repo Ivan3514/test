@@ -1,219 +1,217 @@
 :root {
-    --primary-color: #3498db;
-    --secondary-color: #2980b9;
-    --dark-color: #2c3e50;
-    --light-color: #ecf0f1;
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
     --accent-color: #e74c3c;
     --text-color: #333;
-    --text-light: #7f8c8d;
+    --light-bg: #f9f9f9;
+    --dark-bg: #1a252f;
 }
 
 body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
-    color: var(--text-color);
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
+    color: var(--text-color);
+    background-color: var(--light-bg);
 }
 
-.container {
-    width: 85%;
+.hidden {
+    display: none !important;
+}
+
+.thesis-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--dark-bg));
+    color: white;
+    padding: 2rem 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.header-content {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 15px;
+    padding: 0 2rem;
+    position: relative;
 }
 
-/* Шапка */
-header {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+.thesis-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 2rem auto;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.thesis-nav {
+    width: 250px;
+    background-color: var(--primary-color);
     color: white;
-    text-align: center;
-    padding: 3rem 0;
-    margin-bottom: 2rem;
+    padding: 2rem 0;
 }
 
-header h1 {
-    font-size: 2.5rem;
+.thesis-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.thesis-nav li {
     margin-bottom: 0.5rem;
 }
 
-header h2 {
-    font-size: 1.8rem;
+.nav-link {
+    display: block;
+    padding: 0.8rem 1.5rem;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.nav-link:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+.thesis-content {
+    flex: 1;
+    padding: 2rem;
+}
+
+.thesis-section {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #eee;
+}
+
+.protected-content {
+    position: relative;
+}
+
+.logout-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.logout-btn:hover {
+    background-color: #c0392b;
+}
+
+.thesis-footer {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: var(--dark-bg);
+    color: white;
+}
+
+.secure {
+    color: #2ecc71;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .thesis-container {
+        flex-direction: column;
+    }
+    
+    .thesis-nav {
+        width: 100%;
+        padding: 1rem 0;
+    }
+    
+    .thesis-nav ul {
+        display: flex;
+        overflow-x: auto;
+    }
+    
+    .thesis-nav li {
+        margin: 0;
+        white-space: nowrap;
+    }
+}
+
+.auth-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.auth-container {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.auth-container h2 {
+    margin-top: 0;
+    color: var(--primary-color);
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
     margin-bottom: 0.5rem;
     font-weight: 500;
 }
 
-/* Навигация */
-nav {
-    background-color: var(--dark-color);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+.input-group input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-}
-
-nav li {
-    margin: 0;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    padding: 1rem 1.5rem;
-    display: block;
-    transition: background-color 0.3s;
-}
-
-nav a:hover {
-    background-color: var(--primary-color);
-}
-
-/* Основной контент */
-main {
-    padding: 2rem 0;
-}
-
-section {
-    margin-bottom: 3rem;
-    background-color: white;
-    padding: 2rem;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-h2 {
-    color: var(--primary-color);
-    margin-top: 0;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid var(--light-color);
-}
-
-h3 {
-    color: var(--dark-color);
-}
-
-/* Информация о работе */
-.thesis-info {
-    background-color: var(--light-color);
-    padding: 1rem;
-    border-left: 4px solid var(--primary-color);
-    margin-bottom: 1.5rem;
-}
-
-.abstract {
-    line-height: 1.8;
-}
-
-/* Содержание */
-.toc, .key-points {
-    display: inline-block;
-    vertical-align: top;
-    width: 48%;
-    margin-right: 2%;
-}
-
-.key-points {
-    margin-right: 0;
-}
-
-@media (max-width: 768px) {
-    .toc, .key-points {
-        width: 100%;
-        margin-right: 0;
-        margin-bottom: 1.5rem;
-    }
-}
-
-/* Результаты */
-.results-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 1.5rem;
-}
-
-.result-card {
-    background-color: var(--light-color);
-    padding: 1.5rem;
-    border-radius: 5px;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.result-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-/* Загрузка */
-.download-options {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-
-.download-btn {
-    display: inline-block;
+.auth-btn {
     background-color: var(--primary-color);
     color: white;
+    border: none;
     padding: 0.8rem 1.5rem;
-    text-decoration: none;
-    border-radius: 5px;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
     transition: background-color 0.3s;
+    width: 100%;
 }
 
-.download-btn:hover {
-    background-color: var(--secondary-color);
+.auth-btn:hover {
+    background-color: #1a252f;
 }
 
-/* Контакты */
-.contact-section {
-    background-color: var(--dark-color);
-    color: white;
-    padding: 3rem 0;
+.captcha-container {
+    margin: 1.5rem 0;
 }
 
-.contact-info a {
-    color: var(--light-color);
-    text-decoration: none;
-}
-
-.social-link {
-    color: var(--primary-color) !important;
-}
-
-/* Подвал */
-footer {
-    background-color: var(--text-color);
-    color: white;
-    text-align: center;
-    padding: 1.5rem 0;
-    font-size: 0.9rem;
-}
-
-/* Адаптивность */
-@media (max-width: 600px) {
-    nav ul {
-        flex-direction: column;
-    }
-    
-    nav a {
-        padding: 0.8rem;
-        text-align: center;
-    }
-    
-    header h1 {
-        font-size: 2rem;
-    }
-    
-    header h2 {
-        font-size: 1.5rem;
-    }
+.captcha {
+    font-size: 1.5rem;
+    letter-spacing: 3px;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    background: #f1f1f1;
+    color: #333;
+    font-weight: bold;
+    user-select: none;
 }
